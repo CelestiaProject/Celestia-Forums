@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
+RewriteCond %{HTTP_HOST} ^www.celestiaproject.net$ [NC]
+RewriteRule ^(.*)$ http://celestiaproject.net/forum/$1 [R=301,L]
+
 #
 # Uncomment the statement below if URL rewriting doesn't
 # work properly. If you installed phpBB in a subdirectory

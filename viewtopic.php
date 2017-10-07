@@ -840,17 +840,6 @@ if (!empty($topic_data['poll_start']))
 		}
 		$db->sql_freeresult($result);
 	}
-	else
-	{
-		// Cookie based guest tracking ... I don't like this but hum ho
-		// it's oft requested. This relies on "nice" users who don't feel
-		// the need to delete cookies to mess with results.
-		if ($request->is_set($config['cookie_name'] . '_poll_' . $topic_id, \phpbb\request\request_interface::COOKIE))
-		{
-			$cur_voted_id = explode(',', $request->variable($config['cookie_name'] . '_poll_' . $topic_id, '', true, \phpbb\request\request_interface::COOKIE));
-			$cur_voted_id = array_map('intval', $cur_voted_id);
-		}
-	}
 
 	// Can not vote at all if no vote permission
 	$s_can_vote = $user->data['is_registered']
@@ -982,11 +971,6 @@ if (!empty($topic_data['poll_start']))
 					$db->sql_query($sql);
 				}
 			}
-		}
-
-		if ($user->data['user_id'] == ANONYMOUS && !$user->data['is_bot'])
-		{
-			$user->set_cookie('poll_' . $topic_id, implode(',', $voted_id), time() + 31536000 * ($unvote ? -1 : 1));
 		}
 
 		$sql = 'UPDATE ' . TOPICS_TABLE . '
@@ -1869,7 +1853,7 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 		if (!sizeof($post_edit_list) && ($row['post_edit_reason'] || ($row['post_edit_user'] && !isset($user_cache[$row['post_edit_user']]))))
 		{
 			// Remove all post_ids already parsed (we do not have to check them)
-			$post_storage_list = (!$store_reverse) ? array_slice($post_list, $i) : array_slice(array_reverse($post_list), $i);
+			$post_storage_list = array_slice($post_list, $i);
 
 			$sql = 'SELECT DISTINCT u.user_id, u.username, u.user_colour
 				FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u

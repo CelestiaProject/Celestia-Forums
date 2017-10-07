@@ -67,7 +67,8 @@ if (!$do_merge) return;
 $sql = 'SELECT attach_id, COUNT(*) as num_attach
 	FROM ' . ATTACHMENTS_TABLE . "
 	WHERE post_msg_id = $merge_post_id
-		AND in_message = 0";
+		AND in_message = 0
+		GROUP BY attach_id";
 $result = $db->sql_query($sql);
 $num_old_attach = (int) $db->sql_fetchfield('num_attach');
 
@@ -312,6 +313,8 @@ $params .= '&amp;p=' . $merge_post_id;
 $add_anchor = '#p' . $merge_post_id;
 $url = "{$phpbb_root_path}viewtopic.$phpEx";
 $url = append_sid($url, 'f=' . $forum_id . $params) . $add_anchor;
+
+$data['post_id'] = (int) $merge_post_data['post_id'];
 
 /**
 * For compatibility with third-party extensions.
