@@ -51,7 +51,10 @@
 	}
 <!-- ENDIF -->
 <!-- IF STYLE_FORUM_IMAGE_OPACITY -->
-	.forum_read.hide-icon .forum-image {
+	.forum_read.hide-icon .forum-image,
+	.forum_read_subforum.hide-icon .forum-image,
+	.forum_read_locked.hide-icon .forum-image
+	{
 		opacity: {STYLE_FORUM_IMAGE_OPACITY};
 	}
 <!-- ENDIF -->
@@ -70,7 +73,7 @@
 {$STYLESHEETS}
 
 <!-- EVENT overall_header_stylesheets_after -->
-
+<script type="text/javascript" src="/forum/latexit.js"></script>
 </head>
 <body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}<!-- IF STYLE_NEW_YEAR == 1 or STYLE_NEW_YEAR == -1 and (CURRENT_MONTH == 12 or CURRENT_MONTH == 1 or CURRENT_MONTH == 2) --> new-year<!-- ENDIF --><!-- IF not STYLE_ROUNDED_CORNERS --> no-rounded-corners<!-- ENDIF -->">
 
