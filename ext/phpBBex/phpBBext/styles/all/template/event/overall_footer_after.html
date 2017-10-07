@@ -1,0 +1,168 @@
+<!-- INCLUDEJS @phpBBex_phpBBext/script.js -->
+
+<!--[if lt IE 9]>
+	<script src="http://phpbbex.com/oldies/oldies.js"></script>
+<![endif]-->
+
+<!-- IF MEJS -->
+	<script src="{T_ASSETS_PATH}/mejs/mediaelement.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- ENDIF -->
+
+<script>
+<!-- IF S_QUICK_REPLY and S_VIEWTOPIC -->
+(function($)
+{
+	var post = $('div.post', '#page-body'),
+	author,
+	quoteButton;
+
+	post.each(function() {
+		author = $(this).find('p.author .responsive-hide a');
+		author.attr('onclick', "insert_text('[b]" + author.text() + "[/b], '); return false;");
+
+		quoteButton = $(this).find('a.button.quote-icon');
+		quoteButton.attr('onclick', "addquote(" + this.id.substr(1) + ",'" + author.text() + "'); return false;");
+
+		<!-- IF not S_QUICK_FULL_QUOTE -->
+			quoteButton.addClass('no-full-quote').parent().hide();
+		<!-- ENDIF -->
+	});
+
+	var waiting = false;
+	$('#page-body').on('mouseup', 'div.postbody', function(event)
+	{
+		waiting = true;
+		var post = this;
+		setTimeout(function()
+		{
+			waiting = false;
+			$('.no-full-quote').parent().hide();
+			if (get_selected_text() && event.which <= 1)
+			{
+				$('.no-full-quote', post).parent().show();
+			}
+		}, 50);
+	});
+	$('body').on('mouseup', function(event)
+	{
+		if (!waiting) $('.no-full-quote').parent().hide();
+	});
+})(jQuery);
+<!-- ENDIF -->
+
+<!-- IF S_IN_MEMBERLIST -->
+(function(){
+var filters='<a href="{U_ALL_USERS}">{L_ALL}</a> &bull;\
+	<a href="{U_ACTIVE_USERS}">{L_MEMBERLIST_ACTIVE_USERS}</a> &bull;\
+	<a href="{U_INACTIVE_USERS}">{L_MEMBERLIST_INACTIVE_USERS}</a>';
+
+$(".member-search").children("strong").replaceWith(filters);
+})();
+<!-- ENDIF -->
+
+<!-- IF S_RATE_ENABLED and S_VIEWTOPIC -->
+jQuery(function($)
+{
+	$('li.rate-box').on('click', '.rate-minus, .rate-plus', function()
+	{
+		var url = 'app.php/phpbbex/rating/';
+		var action = $(this).hasClass('rate-minus') ? 'minus' : 'plus';
+		var post_id = $(this).parents('.post').attr('id').substr(1);
+		var $box = $(this).parent();
+		$('.rate-value', $box).wrapInner('<i class="inline-preloader"></i>');
+		$.getJSON(url + action + '/' + post_id + '/' + '{AJAX_TOKEN}')
+		.done(function(data)
+		{
+			if (data.status != 'ok') return;
+			<!-- IF DISPLAY_RATERS -->
+			var title = $('.rate-value', $box).attr('title');
+			<!-- ENDIF -->
+			var html = '';
+			html += '<span class="button icon-button left-button rate-';
+			html += (data.user_rate < 0) ? 'minus-voted' : (data.user_can_minus ? 'minus' : 'no-minus');
+			html += '"></span><span class="button icon-button center-button rate-value rate-';
+			html += (data.post_rating > 0) ? 'positive' : ((data.post_rating < 0) ? 'negative' : 'zero');
+			html += '" title="+' + data.post_rating_positive + '/−' + data.post_rating_negative + '">';
+			html += (data.post_rating_positive != 0 || data.post_rating_negative != 0) ? data.post_rating : '−';
+			html += '</span><span class="button icon-button right-button rate-';
+			html += (data.user_rate > 0) ? 'plus-voted' : (data.user_can_plus ? 'plus' : 'no-plus');
+			html += '"></span>';
+			$box.html(html);
+			<!-- IF DISPLAY_RATERS -->
+			$('.rate-value', $box).attr('title', title ? title : '');
+			<!-- ENDIF -->
+		})
+		.fail(function()
+		{
+			$('.rate-value', $box).text($('.rate-value span', $box).text());
+		});
+	});
+});
+<!-- ENDIF -->
+
+<!-- IF MEJS -->
+(function(){
+	var s = document.createElement('link');
+	s.setAttribute('rel', 'stylesheet');
+	s.setAttribute('href', '{T_ASSETS_PATH}/mejs/mediaelement.css');
+	document.getElementsByTagName("head")[0].appendChild(s);
+})();
+<!-- ENDIF -->
+</script>
+
+<!-- IF S_IN_MEMBERLIST -->
+<style>
+<!-- IF STYLE_ML_SHOW_ROW_NUMBERS -->
+#memberlist tr::before {
+	border: 0 solid #FAFAFA;
+	border-width: 1px 1px 0 0;
+	content: counter(rows, decimal);
+	display: table-cell;
+	font-size: 1.1em;
+	padding: 5px 10px;
+	text-align: center;
+	width: 1%;
+}
+
+#memberlist thead > tr::before {
+	border: none;
+	color: #FFF;
+	content: "";
+	padding: 0;
+}
+
+#memberlist tbody {
+	counter-reset: rows {N_START};
+}
+
+#memberlist tbody > tr {
+	counter-increment: rows;
+}
+<!-- ENDIF -->
+
+<!-- IF not STYLE_ML_SHOW_RANK -->
+table.table1 span.rank-img {
+	display: none;
+}
+<!-- ENDIF -->
+
+<!-- IF not STYLE_ML_SHOW_POSTS -->
+table.table1 .posts {
+	display: none;
+}
+<!-- ENDIF -->
+
+<!-- IF not STYLE_ML_SHOW_JOINED -->
+table.table1 .joined, table.table1 tbody td:nth-last-child(2) {
+	display: none;
+}
+<!-- ENDIF -->
+
+<!-- IF not STYLE_ML_SHOW_LAST_ACTIVE -->
+table.table1 .active, table.table1 td:last-child {
+	display: none;
+}
+<!-- ENDIF -->
+
+</style>
+<!-- ENDIF -->

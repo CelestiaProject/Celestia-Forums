@@ -1,0 +1,37 @@
+<!-- IF STYLE_NEW_YEAR == 1 or (STYLE_NEW_YEAR == -1 and (CURRENT_MONTH == 12 or CURRENT_MONTH == 1 or CURRENT_MONTH == 2)) or not STYLE_ROUNDED_CORNERS -->
+<script>
+(function(){
+var pageBody = document.body; 
+<!-- IF STYLE_NEW_YEAR == 1 or STYLE_NEW_YEAR == -1 and (CURRENT_MONTH == 12 or CURRENT_MONTH == 1 or CURRENT_MONTH == 2) -->
+	pageBody.className+=' new-year';
+<!-- ENDIF -->
+<!-- IF not STYLE_ROUNDED_CORNERS -->
+	pageBody.className+=' no-rounded-corners';
+<!-- ENDIF -->
+})();
+</script>
+<!-- ENDIF -->
+
+<!-- IF STYLE_BACK_TO_TOP --><div id="back-to-top" title="{L_BACK_TO_TOP}"<!-- IF STYLE_BACK_TO_TOP == 2 --> class="on-right"<!-- ENDIF -->></div><!-- ENDIF -->
+
+<!-- IF S_TOP_LINKS -->
+<div id="top-menu">
+	<ul id="top-links">
+	<!-- BEGIN toplinks -->
+		<li><a href="{toplinks.URL}"<!-- IF toplinks.NEWWINDOW --> target="_blank"<!-- ENDIF --><!-- IF toplinks.NOFOLLOW --> rel="nofollow"<!-- ENDIF -->>{toplinks.TITLE}</a></li>
+	<!-- END toplinks -->
+	</ul>
+	<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+	<div class="search-box search-top responsive-hide">
+		<form action="{U_SEARCH}" method="get">
+		<fieldset>
+			<input name="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
+			<button class="button icon-button search-icon" type="submit" title="{L_SEARCH}">{L_SEARCH}</button>
+			<a href="{U_SEARCH}" class="button icon-button search-adv-icon" title="{L_SEARCH_ADV}">{L_SEARCH_ADV}</a>
+			{S_SEARCH_HIDDEN_FIELDS}
+		</fieldset>
+		</form>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->

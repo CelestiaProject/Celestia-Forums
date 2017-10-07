@@ -1,0 +1,139 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<h2>{L_TITLE}</h2>
+
+<div class="panel">
+	<div class="inner">
+
+		<fieldset>
+		<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+		<!-- EVENT ucp_prefs_view_radio_buttons_prepend -->
+		<dl>
+			<dt><label for="images1">{L_VIEW_IMAGES}{L_COLON}</label></dt>
+			<dd>
+				<label for="images1"><input type="radio" name="images" id="images1" value="1"<!-- IF S_IMAGES --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="images0"><input type="radio" name="images" id="images0" value="0"<!-- IF not S_IMAGES --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="flash0">{L_VIEW_FLASH}{L_COLON}</label></dt>
+			<dd>
+				<label for="flash1"><input type="radio" name="flash" id="flash1" value="1"<!-- IF S_FLASH --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="flash0"><input type="radio" name="flash" id="flash0" value="0"<!-- IF not S_FLASH --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="smilies1">{L_VIEW_SMILIES}{L_COLON}</label></dt>
+			<dd>
+				<label for="smilies1"><input type="radio" name="smilies" id="smilies1" value="1"<!-- IF S_SMILIES --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="smilies0"><input type="radio" name="smilies" id="smilies0" value="0"<!-- IF not S_SMILIES --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="sigs1">{L_VIEW_SIGS}{L_COLON}</label></dt>
+			<dd>
+				<label for="sigs1"><input type="radio" name="sigs" id="sigs1" value="1"<!-- IF S_SIGS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="sigs0"><input type="radio" name="sigs" id="sigs0" value="0"<!-- IF not S_SIGS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="avatars1">{L_VIEW_AVATARS}{L_COLON}</label></dt>
+			<dd>
+				<label for="avatars1"><input type="radio" name="avatars" id="avatars1" value="1"<!-- IF S_AVATARS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="avatars0"><input type="radio" name="avatars" id="avatars0" value="0"<!-- IF not S_AVATARS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="mp_on_left0">{L_VIEW_MP_ON_LEFT}{L_COLON}</label></dt>
+			<dd>
+				<label for="mp_on_left1"><input type="radio" name="mp_on_left" id="mp_on_left1" value="1"<!-- IF S_MP_ON_LEFT == 1 --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="mp_on_left2"><input type="radio" name="mp_on_left" id="mp_on_left2" value="2"<!-- IF S_MP_ON_LEFT == 2 --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label for="mp_on_left0"><input type="radio" name="mp_on_left" id="mp_on_left0" value="0"<!-- IF S_MP_ON_LEFT == 0 --> checked="checked"<!-- ENDIF --> /> {L_MP_DEFAULT}</label>
+			</dd>
+		</dl>
+		<!-- IF QUICK_REPLY -->
+		<dl>
+			<dt><label for="quickreply1">{L_QUICK_REPLY_DISPLAY}{L_COLON}</label></dt>
+			<dd>
+				<label for="quickreply1"><input type="radio" name="quickreply" id="quickreply1" value="1"<!-- IF S_QUICKREPLY --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="quickreply0"><input type="radio" name="quickreply" id="quickreply0" value="0"<!-- IF not S_QUICKREPLY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- ENDIF -->
+		<!-- IF QUICK_POST -->
+		<dl>
+			<dt><label for="quickpost1">{L_QUICK_POST_DISPLAY}{L_COLON}</label></dt>
+			<dd>
+				<label for="quickpost1"><input type="radio" name="quickpost" id="quickpost1" value="1"<!-- IF S_QUICKPOST --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="quickpost0"><input type="radio" name="quickpost" id="quickpost0" value="0"<!-- IF not S_QUICKPOST --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- ENDIF -->
+		<dl>
+			<dt><label for="topicreview1">{L_TOPIC_REVIEW_DISPLAY}{L_COLON}</label></dt>
+			<dd>
+				<label for="topicreview1"><input type="radio" name="topicreview" id="topicreview1" value="1"<!-- IF S_TOPICREVIEW --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+				<label for="topicreview0"><input type="radio" name="topicreview" id="topicreview0" value="0"<!-- IF not S_TOPICREVIEW --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- IF S_CHANGE_CENSORS -->
+			<dl>
+				<dt><label for="wordcensor1">{L_DISABLE_CENSORS}{L_COLON}</label></dt>
+				<dd>
+					<label for="wordcensor1"><input type="radio" name="wordcensor" id="wordcensor1" value="1"<!-- IF S_DISABLE_CENSORS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
+					<label for="wordcensor0"><input type="radio" name="wordcensor" id="wordcensor0" value="0"<!-- IF not S_DISABLE_CENSORS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				</dd>
+			</dl>
+		<!-- ENDIF -->
+		<!-- EVENT ucp_prefs_view_radio_buttons_append -->
+		<hr />
+		<!-- EVENT ucp_prefs_view_select_menu_prepend -->
+		<dl>
+			<dt><label for="user_topics_per_page">{L_USER_TOPICS_PER_PAGE}{L_COLON}</label></dt>
+			<dd><input type="number" class="nano" name="user_topics_per_page" id="user_topics_per_page" maxlength="3" size="3" min="10" max="100" value="{USER_TOPICS_PER_PAGE}" /></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_DAYS}{L_COLON}</label></dt>
+			<dd>{S_TOPIC_SORT_DAYS}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_KEY}{L_COLON}</label></dt>
+			<dd>{S_TOPIC_SORT_KEY}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_DIR}{L_COLON}</label></dt>
+			<dd>{S_TOPIC_SORT_DIR}</dd>
+		</dl>
+		<hr />
+		<dl>
+			<dt><label for="user_posts_per_page">{L_USER_POSTS_PER_PAGE}{L_COLON}</label></dt>
+			<dd><input type="number" class="nano" name="user_posts_per_page" id="user_posts_per_page" maxlength="3" size="3" min="10" max="100" value="{USER_POSTS_PER_PAGE}" /></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_POSTS_DAYS}{L_COLON}</label></dt>
+			<dd>{S_POST_SORT_DAYS}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_POSTS_KEY}{L_COLON}</label></dt>
+			<dd>{S_POST_SORT_KEY}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_POSTS_DIR}{L_COLON}</label></dt>
+			<dd>{S_POST_SORT_DIR}</dd>
+		</dl>
+		<!-- EVENT ucp_prefs_view_select_menu_append -->
+		</fieldset>
+
+	</div>
+</div>
+
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

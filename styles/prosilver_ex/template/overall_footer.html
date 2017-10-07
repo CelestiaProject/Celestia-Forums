@@ -1,0 +1,172 @@
+		<!-- EVENT overall_footer_content_after -->
+	</div>
+
+<!-- EVENT overall_footer_page_body_after -->
+
+<div id="page-footer" role="contentinfo">
+	<!-- INCLUDE navbar_footer.html -->
+
+	<!-- IF STYLE_COUNTERS_HTML -->
+	<div class="counters">{STYLE_COUNTERS_HTML}</div>
+	<!-- ENDIF -->
+
+	<div class="copyright">
+		<!-- EVENT overall_footer_copyright_prepend -->
+		{CREDIT_LINE}
+		<!-- EVENT overall_footer_copyright_append -->
+		<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+		<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+	</div>
+
+	<div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+		<div id="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+		<a href="#" class="alert_close"></a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close"></a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<!--[if lt IE 9]>
+	<script src="{T_JQUERY_LINK}"></script>
+	<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('<script src="{T_ASSETS_PATH}/javascript/jquery.min.js?assets_version={T_ASSETS_VERSION}"><\/script>')</script><!-- ENDIF -->
+	<script src="http://phpbbex.com/oldies/oldies.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+	<script src="{T_JQUERY_V2_LINK}"></script>
+	<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('<script src="{T_ASSETS_PATH}/javascript/jquery.v2.js?assets_version={T_ASSETS_VERSION}"><\/script>')</script><!-- ENDIF -->
+<!--<![endif]-->
+
+<!-- IF MEJS -->
+	<script src="{T_ASSETS_PATH}/mejs/mediaelement.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- ENDIF -->
+
+<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- INCLUDEJS forum_fn.js -->
+<!-- INCLUDEJS ajax.js -->
+
+<!-- EVENT overall_footer_after -->
+
+<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+{$SCRIPTS}
+
+<script>
+<!-- IF S_QUICK_REPLY and S_VIEWTOPIC -->
+jQuery(function($)
+{
+	var waiting = false;
+	$('#page-body').on('mouseup', 'div.postbody', function(event)
+	{
+		waiting = true;
+		var post = this;
+		setTimeout(function()
+		{
+			waiting = false;
+			$('.no-full-quote').parent().hide();
+			if (get_selected_text() && event.which <= 1)
+			{
+				$('.no-full-quote', post).parent().show();
+			}
+		}, 50);
+	});
+	$('body').on('mouseup', function(event)
+	{
+		if (!waiting) $('.no-full-quote').parent().hide();
+	});
+});
+<!-- ENDIF -->
+
+<!-- IF S_SHOW_POLL_BOX -->
+jQuery(function($) {
+	$('#poll_title, #poll_option_text').on('blur', function() {
+		if ($('#poll_title').val() == '' && $('#poll_option_text').val() == '') $('#poll_hidden').hide(); else $('#poll_hidden').show();
+	});
+	$('#poll_title').keyup(function() {
+		if ($(this).val() != '') $('#poll_hidden').show();
+	});
+	$('#poll_title').blur();
+
+	$('#poll_delete').change(function() {
+		if($(this).is(':checked')) {
+			$('#poll_hidden').hide();
+			$('#poll_title').parents('dl').hide();
+		} else {
+			$('#poll_title').blur().parents('dl').show();
+		}
+	});
+	$('#poll_delete').change();
+});
+<!-- ENDIF -->
+
+<!-- IF S_TYPE_TOGGLE -->
+jQuery(function($)
+{
+	$("#postform input[name=topic_type]").change(function()
+	{
+		if ($(this).val() == 0) $(".only-for-announces").hide(); else $(".only-for-announces").show();
+	});
+	$("#postform input[name=topic_type]:checked").change();
+});
+<!-- ENDIF -->
+
+<!-- IF S_RATE_ENABLED and S_VIEWTOPIC -->
+jQuery(function($)
+{
+	$('#page-body').on('click', '.rate-box .rate-minus, .rate-box .rate-plus', function()
+	{
+		var url = 'app.php/phpbbex/rating/';
+		var action = $(this).hasClass('rate-minus') ? 'minus' : 'plus';
+		var post_id = $(this).parents('.post').attr('id').substr(1);
+		var $box = $(this).parent();
+		$('.rate-value', $box).wrapInner('<i class="inline-preloader"></i>');
+		$.getJSON(url + action + '/' + post_id + '/' + '{AJAX_TOKEN}')
+		.done(function(data)
+		{
+			if (data.status != 'ok') return;
+			<!-- IF DISPLAY_RATERS -->
+			var title = $('.rate-value', $box).attr('title');
+			<!-- ENDIF -->
+			var html = '';
+			html += '<span class="button icon-button left-button rate-';
+			html += (data.user_rate < 0) ? 'minus-voted' : (data.user_can_minus ? 'minus' : 'no-minus');
+			html += '"></span><span class="button icon-button center-button rate-value rate-';
+			html += (data.post_rating > 0) ? 'positive' : ((data.post_rating < 0) ? 'negative' : 'zero');
+			html += '" title="+' + data.post_rating_positive + '/−' + data.post_rating_negative + '">';
+			html += (data.post_rating_positive != 0 || data.post_rating_negative != 0) ? data.post_rating : '−';
+			html += '</span><span class="button icon-button right-button rate-';
+			html += (data.user_rate > 0) ? 'plus-voted' : (data.user_can_plus ? 'plus' : 'no-plus');
+			html += '"></span>';
+			$box.html(html);
+			<!-- IF DISPLAY_RATERS -->
+			$('.rate-value', $box).attr('title', title ? title : '');
+			<!-- ENDIF -->
+		})
+		.fail(function()
+		{
+			$('.rate-value', $box).text($('.rate-value span', $box).text());
+		});
+	});
+});
+<!-- ENDIF -->
+
+<!-- IF MEJS -->
+(function(){
+	var s = document.createElement('link');
+	s.setAttribute('rel', 'stylesheet');
+	s.setAttribute('href', '{T_ASSETS_PATH}/mejs/mediaelement.css');
+	document.getElementsByTagName("head")[0].appendChild(s);
+})();
+<!-- ENDIF -->
+</script>
+
+<!-- EVENT overall_footer_body_after -->
+
+</body>
+</html>

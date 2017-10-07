@@ -1,0 +1,190 @@
+						</div>
+					</div><!-- /#main -->
+				</div>
+		</div><!-- /#acp -->
+	</div>
+
+	<div id="page-footer">
+		<div class="copyright">
+			<!-- IF CREDIT_LINE -->
+				{CREDIT_LINE}
+			<!-- ENDIF -->
+
+			<!-- IF DEBUG_OUTPUT -->
+				<!-- IF CREDIT_LINE --><br /><!-- ENDIF -->
+				{DEBUG_OUTPUT}
+			<!-- ENDIF -->
+		</div>
+
+		<div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+			<div id="darken">&nbsp;</div>
+		</div>
+		<div id="loading_indicator"></div>
+
+		<div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+			<a href="#" class="alert_close"></a>
+			<h3 class="alert_title"></h3><p class="alert_text"></p>
+		</div>
+		<div id="phpbb_confirm" class="phpbb_alert">
+			<a href="#" class="alert_close"></a>
+			<div class="alert_text"></div>
+		</div>
+	</div>
+</div>
+
+<!--[if lt IE 9]>
+	<script src="{T_JQUERY_LINK}"></script>
+	<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('<script src="{T_ASSETS_PATH}/javascript/jquery.min.js?assets_version={T_ASSETS_VERSION}"><\/script>')</script><!-- ENDIF -->
+<![endif]-->
+<!--[if gte IE 9]><!-->
+	<script src="{T_JQUERY_V2_LINK}"></script>
+	<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('<script src="{T_ASSETS_PATH}/javascript/jquery.v2.js?assets_version={T_ASSETS_VERSION}"><\/script>')</script><!-- ENDIF -->
+<!--<![endif]-->
+<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- INCLUDEJS ajax.js -->
+<!-- INCLUDEJS admin.js -->
+
+<script>
+jQuery(function($)
+{
+	// Preload sending animation for silly IE and Chrome
+	var $preloader = $('<button class="sending" style="position: absolute; top: -99px; left: -99px;"></button>').appendTo(document.body);
+	setTimeout(function(){$preloader.remove();}, 10);
+
+	// Forms submitting indication
+	$('form input[type=submit]').on('click', function()
+	{
+		var $submit = $(this);
+		if ($submit.hasClass('sending')) return false;
+		$(this).parents('form').off('submit.sending').one('submit.sending', function(e)
+		{
+			if (e.isDefaultPrevented()) return;
+			$submit.addClass('sending');
+			var last = (new Date()).getTime();
+			var timer = setInterval(function()
+			{
+				if ((new Date()).getTime() - last > 2000)
+				{
+					$submit.removeClass('sending');
+					clearInterval(timer);
+					return;
+				}
+				last = (new Date()).getTime();
+			}, 1000);
+		});
+	});
+
+	// Ctrl+Enter and Alt+Enter titles for default and alternate submit buttons
+	$('form input[type=submit].default-submit-action').attr('title', 'Ctrl+Enter');
+	$('form input[type=submit].alternate-submit-action').attr('title', 'Alt+Enter');
+
+	// Enter, Ctrl+Enter and Alt+Enter handler
+	$('form input[type=text], form input[type=password], form textarea').on('keydown', function (e)
+	{
+		var is_input = !$(this).is('textarea');
+
+		// Detect enter in autocomplete
+		if (is_input)
+		{
+			var in_autocomplete = $(this).data('in_autocomplete');
+			$(this).data('in_autocomplete', (e.which == 40 /*down*/ || e.which == 38 /*up*/ || e.which == 34 /*pgdn*/ || e.which == 33 /*pgup*/));
+			if (in_autocomplete && (e.which == 13 || e.which == 10)) return true;
+		}
+
+		if ((e.which == 13 || e.which == 10) && (is_input || e.ctrlKey || e.altKey))
+		{
+			// Find proper submit button
+			var $form = $(this).parents('form');
+			var $submit = $form.find('input[type=submit].' + (e.altKey ? 'alternate' : 'default') + '-submit-action:eq(0)');
+			if ($submit.length == 0)
+			{
+				if (e.altKey) return false;
+				$submit = $form.find('input[type=submit]');
+				if ($submit.length == 0) return false;
+				if ($submit.length > 1)
+				{
+					$submit = $form.find('input[type=submit][name=submit]');
+					if ($submit.length != 1) return false;
+				}
+			}
+
+			// Submit form
+			if (window.opera && e.ctrlKey)
+			{
+				// Prevent creation of new tab in Opera
+				// Unfortunately this method does not work with the button with name="submit"
+				if ($submit.attr('name') == 'submit') return false;
+				$submit.triggerHandler('click');
+				if ($submit.attr('name'))
+				{
+					var $input = $('<input type="hidden" />').attr('name', $submit.attr('name')).val($submit.val());
+					$form.append($input).submit();
+					$input.remove();
+				}
+				else
+				{
+					$form.submit();
+				}
+			}
+			else
+			{
+				$submit.click();
+			}
+			return false;
+		}
+
+		return true;
+	});
+});
+
+<!-- IF S_OVERVIEW and (not S_USER_FOUNDER or S_FOUNDER) -->
+jQuery(function($)
+{
+	$('#quicktools').on('change', function()
+	{
+		var option = $(this).val();
+		$('#reasons').hide();
+		$('#delrates').hide();
+
+		switch (option)
+		{
+			case 'banuser':
+			case 'banemail':
+			case 'banip':
+				$('#reasons').show();
+			break;
+
+			case 'delrates':
+				$('#delrates').show();
+			break;
+		}
+
+		var text = $('#ban_reason').val();
+		if (text && text != '{LA_USER_ADMIN_BAN_NAME_REASON}' && text != '{LA_USER_ADMIN_BAN_EMAIL_REASON}' && text != '{LA_USER_ADMIN_BAN_IP_REASON}')
+		{
+			return;
+		}
+
+		if (option == 'banuser')
+		{
+			$('#ban_reason').val('{LA_USER_ADMIN_BAN_NAME_REASON}');
+		}
+		else if (option == 'banemail')
+		{
+			$('#ban_reason').val('{LA_USER_ADMIN_BAN_EMAIL_REASON}');
+		}
+		else if (option == 'banip')
+		{
+			$('#ban_reason').val('{LA_USER_ADMIN_BAN_IP_REASON}');
+		}
+	});
+	$('#quicktools').trigger('change');
+});
+<!-- ENDIF -->
+</script>
+
+<!-- EVENT acp_overall_footer_after -->
+{$SCRIPTS}
+
+</body>
+</html>

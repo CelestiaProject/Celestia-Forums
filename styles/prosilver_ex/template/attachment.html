@@ -1,0 +1,93 @@
+<!-- EVENT attachment_file_before -->
+
+<!-- BEGIN _file -->
+	<!-- IF _file.S_DENIED -->
+	<p>[{_file.DENIED_MESSAGE}]</p>
+	<!-- ELSE -->
+		<!-- EVENT attachment_file_prepend -->
+
+		<!-- IF _file.S_THUMBNAIL -->
+		<dl class="thumbnail">
+			<dt><a href="{_file.U_DOWNLOAD_LINK}"><img src="{_file.THUMB_IMAGE}" class="postimage" alt="{_file.DOWNLOAD_NAME}" title="{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}, {_file.L_DOWNLOAD_COUNT})" /></a></dt>
+			<!-- IF _file.COMMENT --><dd> {_file.COMMENT}</dd><!-- ENDIF -->
+		</dl>
+		<!-- ENDIF -->
+
+		<!-- IF _file.S_IMAGE -->
+		<dl class="file">
+			<dt class="attach-image"><img src="{_file.U_INLINE_LINK}" class="postimage" alt="{_file.DOWNLOAD_NAME}" title="{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}, {_file.L_DOWNLOAD_COUNT})" /></dt>
+			<!-- IF _file.COMMENT --><dd><em>{_file.COMMENT}</em></dd><!-- ENDIF -->
+			<dd class="hide-in-inline">{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</dd>
+		</dl>
+		<!-- ENDIF -->
+
+		<!-- IF _file.S_FILE -->
+		<dl class="file">
+			<dt class="attach-file<!-- IF _file.UPLOAD_ICON -->-with-icon<!-- ENDIF -->"><!-- IF _file.UPLOAD_ICON -->{_file.UPLOAD_ICON} <!-- ENDIF --><a class="postlink" href="{_file.U_DOWNLOAD_LINK}" title="{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}, {_file.L_DOWNLOAD_COUNT})<!-- IF _file.COMMENT --> - {_file.COMMENT}<!-- ENDIF -->">{_file.DOWNLOAD_NAME}</a></dt>
+			<!-- IF _file.COMMENT --><dd class="hide-in-inline"><em>{_file.COMMENT}</em></dd><!-- ENDIF -->
+			<dd class="hide-in-inline">({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</dd>
+		</dl>
+		<!-- ENDIF -->
+
+		<!-- IF _file.S_AUDIO_FILE or _file.S_VIDEO_FILE or _file.S_FLASH_FILE -->
+		<dl class="file">
+			<dt>
+			<!-- IF _file.S_AUDIO_FILE or _file.S_VIDEO_FILE -->
+				<script>
+				function addListener(obj, type, listener) {
+					if (obj.addEventListener) {
+						obj.addEventListener(type, listener, false);
+						return true;
+					} else if(obj.attachEvent) {
+						obj.attachEvent('on' + type, listener);
+						return true;
+					}
+					return false;
+				}
+				</script>
+				<!-- IF _file.S_AUDIO_FILE -->
+				<audio id="attach_audio_{_file.ATTACH_ID}" preload="none" controls>
+					<source src="{_file.U_DOWNLOAD_LINK}" type="{_file.MIME}">
+				</audio>
+				<script>
+				addListener(window, 'load', function() {
+					jQuery(function($)
+					{
+						$('#attach_audio_{_file.ATTACH_ID}').mediaelementplayer();
+					});
+				});
+				</script>
+				<!-- ELSE -->
+				<video id="attach_video_{_file.ATTACH_ID}" preload="none" controls>
+					<source src="{_file.U_DOWNLOAD_LINK}" type="{_file.MIME}">
+				</video>
+				<script>
+				addListener(window, 'load', function() {
+					jQuery(function($)
+					{
+						$('#attach_video_{_file.ATTACH_ID}').mediaelementplayer();
+					});
+				});
+				</script>
+				<!-- ENDIF -->
+			<!-- ELSEIF _file.S_FLASH_FILE -->
+				<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" width="{_file.WIDTH}" height="{_file.HEIGHT}">
+					<param name="movie" value="{_file.U_VIEW_LINK}" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="quality" value="high" />
+					<param name="allowScriptAccess" value="never" />
+					<param name="allowNetworking" value="internal" />
+					<embed src="{_file.U_VIEW_LINK}" type="application/x-shockwave-flash" width="{_file.WIDTH}" height="{_file.HEIGHT}" play="true" loop="true" quality="high" allowscriptaccess="never" allownetworking="internal"></embed>
+				</object>
+			<!-- ENDIF -->
+			</dt>
+			<!-- IF _file.COMMENT --><dd><em>{_file.COMMENT}</em></dd><!-- ENDIF -->
+			<dd<!-- IF _file.S_FLASH_FILE --> class="hide-in-inline"<!-- ENDIF -->><a href="{_file.U_DOWNLOAD_LINK}">{_file.DOWNLOAD_NAME}</a> ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</dd>
+		</dl>
+		<!-- ENDIF -->
+
+		<!-- EVENT attachment_file_append -->
+	<!-- ENDIF -->
+<!-- END _file -->
+<!-- EVENT attachment_file_after -->
