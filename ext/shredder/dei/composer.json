@@ -1,0 +1,31 @@
+{
+	"name": "shredder/dei",
+	"type": "phpbb-extension",
+	"description": "Disallow External Images for phpBB 3.1",
+	"homepage": "http://www.phpbb-work.ru/",
+	"keywords": ["phpbb-work", "extension", "Disallow", "External", "Images"],
+	"version": "1.0.0",
+	"time": "2014-11-26",
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Shredder",
+			"homepage": "http://www.phpbb-work.ru/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "Disallow External Images",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.2"
+		},
+		"version-check": {
+			"host": "www.phpbb-work.ru",
+			"directory": "/mods",
+			"filename": "dei.json"
+		}
+	}
+}

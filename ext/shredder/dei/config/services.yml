@@ -1,0 +1,10 @@
+services:
+    shredder.dei.listener:
+        class: shredder\dei\event\listener
+        arguments:
+            - @auth
+            - @config
+            - @config_text
+            - @user
+        tags:
+            - { name: event.listener }
