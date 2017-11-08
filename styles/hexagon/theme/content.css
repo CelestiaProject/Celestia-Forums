@@ -402,7 +402,7 @@ p.author {
 	font-size: 1em;
 	line-height: 1.2em;
 	clear: both;
-	border-bottom: 1px dashed #de7300;
+	border-bottom: 1px dashed #0082FF;
 }
 
 /* Post signature */
@@ -580,7 +580,7 @@ blockquote .codebox {
 	border: 1px solid transparent;
 /*	cursor: move; */
 	cursor: default;
-	    border-color: #de7300 !important;
+	    border-color: #0082FF !important;
     border-radius: 0px !important;
     box-shadow: 0 0 4px #000000;
 }

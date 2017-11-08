@@ -19,12 +19,12 @@ h2 {
 }
 
 h3 {
-	border-bottom-color: #de7300;
+	border-bottom-color: #0082FF;
 	color: #e9ebee;
 }
 
 hr {
-	border-color: #de7300;
+	border-color: #0082FF;
 	
 }
 
@@ -37,7 +37,7 @@ li#search-box {
 .search-box .inputbox:hover,
 .search-box .inputbox:focus,
 .search-box .button:hover {
-	border-color: #de7300;
+	border-color: #0082FF;
 	
 }
 
@@ -50,7 +50,7 @@ li#search-box {
 ---------------------------------------- */
 #wrap {
 	background-color: #171717;
-	border-color: #de7300;
+	border-color: #0082FF;
 	max-width: 1240px;
     min-width: 625px;
     margin: auto;
@@ -185,7 +185,7 @@ tr.bg2 {
 ----------------------------------------*/
 
 ul.navlinks {
-	border-top-color: #de7300;
+	border-top-color: #0082FF;
 	box-shadow: 0 0 4px #000000;
     padding: 5px;
 }
@@ -228,7 +228,7 @@ table.info tbody th {
 /* Misc layout styles
 ---------------------------------------- */
 dl.details dt {
-	color: #de7300;
+	color: #0082FF;
 }
 
 dl.details dd {
@@ -236,7 +236,7 @@ dl.details dd {
 }
 
 .sep {
-	color: #de7300;
+	color: #0082FF;
 }
 
 /* Pagination
@@ -244,24 +244,24 @@ dl.details dd {
 
 .pagination li a {
 	background-color: #171717;
-    border-color: #de7300;
+    border-color: #0082FF;
     color: #e9ebee;
 }
 
 .pagination li.ellipsis span {
 	background-color: transparent;
-	color:	#de7300;
+	color:	#0082FF;
 }
 
 .pagination li.active span {
 	background-color: #262626;
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
 .pagination li a:hover, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {
 	background-color: #262626;
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
@@ -278,7 +278,7 @@ dl.details dd {
 ---------------------------------------- */
 
 .copyright {
-	color: #de7300;
+	color: #0082FF;
 }
 
 .error {
@@ -297,7 +297,7 @@ li.reported:hover {
 }
 
 div.rules {
-    background-color: #de7300;
+    background-color: #0082FF;
     color: #171717;
 	box-shadow: 0 0 4px #000000;
 }
@@ -326,7 +326,7 @@ Colours and backgrounds for links.css
 
 a { color: #e9ebee;
 box-shadow: 0 0 0 #000000 !important; }
-a:hover	{ color: #de7300;
+a:hover	{ color: #0082FF;
  }
 
 
@@ -336,7 +336,7 @@ a:hover	{ color: #de7300;
 }
 
 .forumbg .header a:hover, .forabg .header a:hover, th a:hover {
-	color: #de7300;
+	color: #0082FF;
 }
 
 /* Notification mark read link */
@@ -346,8 +346,8 @@ a:hover	{ color: #de7300;
 
 /* Post body links */
 .postlink {
-	border-bottom-color: #de7300;
-	color: #de7300;
+	border-bottom-color: #0082FF;
+	color: #0082FF;
 }
 
 .postlink:visited {
@@ -384,11 +384,11 @@ a.arrow-up:hover {
 }
 
 a.arrow-left:hover {
-	color: #de7300;
+	color: #0082FF;
 }
 
 a.arrow-right:hover {
-	color: #de7300;
+	color: #0082FF;
 }
 
 /*
@@ -407,7 +407,7 @@ ul.topiclist li {
 }
 
 ul.topiclist dd {
-	border-left-color: #de7300;
+	border-left-color: #0082FF;
 }
 
 .rtl ul.topiclist dd {
@@ -434,7 +434,7 @@ border-bottom: 8px solid #262626;
 }
 
 li.row strong {
-	color: #de7300;
+	color: #0082FF;
 	
 }
 
@@ -445,7 +445,7 @@ li.row:hover dd {
 }
 
 .rtl li.row:hover dd {
-	border-right-color: #de7300;
+	border-right-color: #0082FF;
 	border-left-color: transparent;
 }
 
@@ -467,15 +467,15 @@ li.header dt, li.header dd {
 
 .content h2, .panel h2 {
 	color: #e9ebee;
-	border-bottom-color:  #de7300;
+	border-bottom-color:  #0082FF;
 }
 
 dl.faq dt {
-	color: #de7300;
+	color: #0082FF;
 }
 
 .posthilit {
-	background-color: #de7300;
+	background-color: #0082FF;
     color: #171717;
 }
 
@@ -485,12 +485,12 @@ dl.faq dt {
 
 /* Post signature */
 .signature {
-	border-top-color: #de7300;
+	border-top-color: #0082FF;
 }
 
 /* Post noticies */
 .notice {
-	border-top-color:  #de7300;
+	border-top-color:  #0082FF;
 }
 
 /* BB Code styles
@@ -499,7 +499,7 @@ dl.faq dt {
 blockquote {
 	background-color: #171717;
 	background-image: url("./images/quote.png");
-	border-color:#de7300;
+	border-color:#0082FF;
 	box-shadow: 0 0 4px #000000;
 }
 
@@ -520,7 +520,7 @@ blockquote blockquote blockquote {
 /* Code block */
 .codebox {
 	background-color: #171717;
-	border-color: #de7300;
+	border-color: #0082FF;
 	box-shadow: 0 0 4px #000000;
 }
 
@@ -543,7 +543,7 @@ blockquote blockquote blockquote {
 ----------------------------------------*/
 .attachbox {
 	background-color: #262626;
-    border-color: #de7300;
+    border-color: #0082FF;
 	box-shadow: 0 0 4px #000000;
 }
 
@@ -574,7 +574,7 @@ dl.file dd {
 }
 
 dl.thumbnail img {
-	border-color: #de7300;
+	border-color: #0082FF;
 	background-color: #262626;
 }
 
@@ -587,19 +587,19 @@ dl.thumbnail dt a:hover {
 }
 
 dl.thumbnail dt a:hover img {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 /* Post poll styles
 ----------------------------------------*/
 
 fieldset.polls dl {
-	border-top-color: #de7300;
+	border-top-color: #0082FF;
 	color: #666666;
 }
 
 fieldset.polls dl.voted {
-	color: #de7300;
+	color: #0082FF;
 }
 
 fieldset.polls dd div {
@@ -611,12 +611,12 @@ fieldset.polls dd div {
 }
 
 .pollbar1 {
-	background-color: #de7300;
+	background-color: #0082FF;
 	box-shadow: 0 0 4px #000000;
 }
 
 .rtl .pollbar1 {
-	border-left-color: #de7300;
+	border-left-color: #0082FF;
 }
 
 .pollbar2 {
@@ -659,20 +659,20 @@ fieldset.polls dd div {
 ----------------------------------------*/
 .postprofile {
 	color: #e9ebee;
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .pm .postprofile {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .postprofile strong {
-	color: #de7300;
+	color: #0082FF;
 }
 
 .online {
 	background-image: none;
-    border-right: 5px solid #de7300;
+    border-right: 5px solid #0082FF;
 }
 
 dd.profile-warnings {
@@ -684,7 +684,7 @@ dd.profile-warnings {
 Colours and backgrounds for buttons.css
 -------------------------------------------------------------- */
 .button {
-	border-color: #de7300;
+	border-color: #0082FF;
 	background-color: #262626;
 	color: #e9ebee;
 }
@@ -694,21 +694,21 @@ Colours and backgrounds for buttons.css
 }
 
 .button:hover, .dropdown-visible .dropdown-select, .nojs .dropdown-container:hover .dropdown-select {
-	border-color: #de7300;
+	border-color: #0082FF;
 	background-color: #171717;
 	
 }
 
-.dropdown-select:after	{ border-color: #de7300; }
-.dropdown-select:hover	{ border-color: #de7300; }
+.dropdown-select:after	{ border-color: #0082FF; }
+.dropdown-select:hover	{ border-color: #0082FF; }
 
 .dropdown-visible .dropdown-select, .dropdown-visible .dropdown-select:hover, .nojs .dropdown-container:hover .dropdown-select {
-	border-color: #de7300;
-	color: #de7300;
+	border-color: #0082FF;
+	color: #0082FF;
 }
 
-.contact-icons a		{ border-color: #de7300; }
-.contact-icons a:hover	{ background-color: #de7300; }
+.contact-icons a		{ border-color: #0082FF; }
+.contact-icons a:hover	{ background-color: #0082FF; }
 
 /* Icon images
 ---------------------------------------- */
@@ -808,12 +808,12 @@ Colours and backgrounds for cp.css
 ----------------------------------------*/
 
 .panel-container h3, .panel-container hr, #cp-menu hr {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .panel-container .panel li.row {
-	border-bottom-color: #de7300;
-	border-top-color: #de7300;
+	border-bottom-color: #0082FF;
+	border-top-color: #0082FF;
 }
 
 ul.cplist {
@@ -831,7 +831,7 @@ ul.cplist {
 }
 
 #cp-main .pm-message {
-	border-color: #de7300;
+	border-color: #0082FF;
 	background-color: #e9ebee;
 }
 
@@ -843,14 +843,14 @@ ul.cplist {
 }
 
 #tabs .tab > a:hover {
-	background: #de7300;
+	background: #0082FF;
 	color: #e9ebee;
 }
 
 #tabs .activetab > a,
 #tabs .activetab > a:hover {
 	background: #262626;
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
@@ -866,18 +866,18 @@ ul.cplist {
 
 #minitabs .activetab > a,
 #minitabs .activetab > a:hover {
-    background-color: #de7300;
+    background-color: #0082FF;
     color: #262626;
 }
 
 /* Responsive tabs
 ----------------------------------------*/
 .responsive-tab .responsive-tab-link:before {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .responsive-tab .responsive-tab-link:hover:before {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 /* UCP navigation menu
@@ -891,18 +891,18 @@ ul.cplist {
 }
 
 .rtl #navigation a {
-	background: #de7300;
+	background: #0082FF;
 	
 }
 
 #navigation a:hover {
-	background: #de7300;
+	background: #0082FF;
 	color: #262626;
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 #navigation #active-subsection a {
-	background: #de7300;
+	background: #0082FF;
 	color: #262626;
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
@@ -976,7 +976,7 @@ dl.mini dt {
 /* Avatar gallery */
 #gallery label {
     background: #171717;
-    border-color: #de7300;
+    border-color: #0082FF;
 }
 
 #gallery label:hover {
@@ -991,9 +991,9 @@ Colours and backgrounds for forms.css
 /* General form styles
 ----------------------------------------*/
 select {
-	border-color: #de7300;
+	border-color: #0082FF;
 	background-color: #171717;
-	color: #de7300;
+	color: #0082FF;
 }
 
 label {
@@ -1016,7 +1016,7 @@ fieldset.fields1 {
 
 /* Hover effects */
 fieldset dl:hover dt label {
-	color: #de7300;
+	color: #0082FF;
 }
 
 fieldset.fields2 dl:hover dt label {
@@ -1047,7 +1047,7 @@ fieldset.quick-login input.inputbox {
 ---------------------------------------- */
 .inputbox {
 	background-color: #262626;
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
@@ -1060,11 +1060,11 @@ fieldset.quick-login input.inputbox {
 }
 
 .inputbox:hover {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .inputbox:focus {
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
@@ -1087,7 +1087,7 @@ a.button1, input.button1, input.button3, a.button2, input.button2 {
 }
 
 a.button1, input.button1 {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 input.button3 {
@@ -1096,7 +1096,7 @@ input.button3 {
 
 /* Alternative button */
 a.button2, input.button2, input.button3 {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 /* <a> button in the style of the form buttons */
@@ -1107,14 +1107,14 @@ a.button1, a.button2 {
 
 /* Hover states */
 a.button1:hover, input.button1:hover, a.button2:hover, input.button2:hover, input.button3:hover {
-	border-color: #de7300;
-	color: #de7300;
+	border-color: #0082FF;
+	color: #0082FF;
 }
 
 /* Focus states */
 input.button1:focus, input.button2:focus, input.button3:focus {
-	border-color: #de7300;
-	color: #de7300;
+	border-color: #0082FF;
+	color: #0082FF;
 }
 
 input.search {
@@ -1129,7 +1129,7 @@ input.disabled {
 ---------------------------------------- */
 .phpbb_alert {
 	background-color: #171717;
-    border-color: #de7300;
+    border-color: #0082FF;
     box-shadow: 0 0 4px #000000;
 }
 .phpbb_alert .alert_close {
@@ -1145,16 +1145,16 @@ input.disabled {
 }
 
 .dropdown-extended ul li {
-	border-top-color: #de7300;
+	border-top-color: #0082FF;
 }
 
 .dropdown-extended ul li:hover {
 	
-	color: #de7300;
+	color: #0082FF;
 }
 
 .dropdown-extended .header, .dropdown-extended .footer {
-	border-color: #de7300;
+	border-color: #0082FF;
 	color: #e9ebee;
 }
 
@@ -1180,11 +1180,11 @@ input.disabled {
 }
 
 ul.linklist li.responsive-menu a.responsive-menu-link:before {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 ul.linklist li.responsive-menu a.responsive-menu-link:hover:before, ul.linklist li.responsive-menu.visible a.responsive-menu-link:before {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .dropdown .dropdown-contents {
@@ -1198,11 +1198,11 @@ ul.linklist li.responsive-menu a.responsive-menu-link:hover:before, ul.linklist 
 }
 
 .dropdown li, .dropdown li li {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 .dropdown li.separator {
-	border-color: #de7300;
+	border-color: #0082FF;
 }
 
 /* Notifications
@@ -1216,6 +1216,6 @@ li.notification-reported strong, li.notification-disapproved strong {
 	color: #da2323;
 }
 .badge {
-	background-color: #de7300;
+	background-color: #0082FF;
 	color: #e9ebee;
 }
