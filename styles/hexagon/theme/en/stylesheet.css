@@ -1,0 +1,11 @@
+/* Online image */
+.online {
+    background-image: none;
+    border-right: 5px solid #de7300;
+}
+
+.imageset.icon_user_online {
+	background-image: none;
+	padding-left: 58px;
+	padding-top: 58px;
+}

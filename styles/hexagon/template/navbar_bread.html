@@ -1,0 +1,31 @@
+<ul id="nav-breadcrumbs" class="linklist navlinks" role="menubar">
+	
+		<!-- DEFINE $MICRODATA = ' itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""' -->
+		<!-- EVENT overall_header_breadcrumbs_before -->
+		<li class="small-icon icon-home breadcrumbs">
+			<!-- IF U_SITE_HOME --><span class="crumb"{$MICRODATA}><a href="{U_SITE_HOME}" data-navbar-reference="home" itemprop="url"><span itemprop="title">{L_SITE_HOME}</span></a></span><!-- ENDIF -->
+			<!-- EVENT overall_header_breadcrumb_prepend -->
+			<span class="crumb"{$MICRODATA}><a href="{U_INDEX}" accesskey="h" data-navbar-reference="index" itemprop="url"><span itemprop="title">{L_INDEX}</span></a></span>
+			<!-- BEGIN navlinks -->
+				<!-- EVENT overall_header_navlink_prepend -->
+				<span class="crumb"{$MICRODATA}<!-- IF navlinks.MICRODATA --> {navlinks.MICRODATA}<!-- ENDIF -->><a href="{navlinks.U_VIEW_FORUM}" itemprop="url"><span itemprop="title">{navlinks.FORUM_NAME}</span></a></span>
+				<!-- EVENT overall_header_navlink_append -->
+			<!-- END navlinks -->
+			<!-- EVENT overall_header_breadcrumb_append -->
+		</li>
+		<!-- EVENT overall_header_breadcrumbs_after -->
+<!-- EVENT overall_header_searchbox_before -->
+			<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+			<li id="search-box" class="search-box search-header">
+				<form action="{U_SEARCH}" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
+					<button class="button icon-button search-icon" type="submit" title="{L_SEARCH}">{L_SEARCH}</button>
+					<a href="{U_SEARCH}" class="button icon-button search-adv-icon" title="{L_SEARCH_ADV}">{L_SEARCH_ADV}</a>
+					{S_SEARCH_HIDDEN_FIELDS}
+				</fieldset>
+				</form>
+			</li>
+			<!-- ENDIF -->
+
+	</ul>
