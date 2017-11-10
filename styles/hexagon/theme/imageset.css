@@ -12,10 +12,10 @@ span.imageset {
 /* Global imageset items */
 .imageset.site_logo {
     background-image: url(./images/logo.png);
-    padding-left: 500px;
-    padding-top: 175px;
-    margin-top: 20px;
-	float: right;
+    padding-left: 150px;
+    padding-top: 150px;
+	margin-top: 30px;
+	margin-bottom: 45px;
 }
 .imageset.forum_link {
 	background-image: url("./images/forum_link.gif");
@@ -316,6 +316,7 @@ span.imageset {
 	background-image: url("./images/icon_post_target.png");
 	padding-left: 16px;
 	padding-top: 16px;
+	margin-right: 5px;
 }
 .imageset.icon_post_target_unread {
 	background-image: url("./images/icon_post_target_unread.png");
