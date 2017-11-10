@@ -60,10 +60,12 @@ li#search-box {
     background-color: #262626;
     color: #e9ebee;
     border-radius: 0px;
-    background: url(./images/banner.jpg) no-repeat;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-bottom: 42px;
-    background-position: top center;
+
+}
+.headerbar .inner {
+	padding: 0 !important;
 }
 
 .navbar {
@@ -125,7 +127,7 @@ table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
 
 table.zebra-list tr:nth-child(even) td, ul.zebra-list li:nth-child(even) {
 	background-color: #171717;
-    border-top: 1px solid #de730
+    border-top: 1px solid #de7300
 }
 div#file-list-container {
     background-color: #262626;

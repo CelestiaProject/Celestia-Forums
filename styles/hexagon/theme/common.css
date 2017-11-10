@@ -19,7 +19,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
     font-size: 1em;
 }
 /* HTML5 display-role reset for older browsers */
@@ -58,18 +58,18 @@ html {
 }
 
 body {
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 10px;
 	line-height: normal;
 	margin: 0;
-	padding: 12px 0;
+	padding: 36px 0 12px;
 	word-wrap: break-word;
 	-webkit-print-color-adjust: exact;
 }
 
 h1 {
 	/* Forum name */
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	margin-right: 200px;
 	margin-top: 15px;
 	font-weight: bold;
@@ -78,7 +78,7 @@ h1 {
 
 h2 {
 	/* Forum header titles */
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 2em;
 	margin: 0.8em 0 0.2em 0;
@@ -90,7 +90,7 @@ h2.solo {
 
 h3 {
 	/* Sub-headers (also used as post headers, but defined later) */
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
 	border-bottom: 1px solid transparent;
@@ -102,7 +102,7 @@ h3 {
 
 h4 {
 	/* Forum and topic list titles */
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.3em;
 }
 
@@ -171,7 +171,7 @@ ul {
 ul#nav-main {background-color: #262626;
     box-shadow: 0 0 4px #000000;
     padding: 5px;
-	z-index: 5;
+	z-index: 5000;
     position: fixed;
     width: 100%;
     left: 0;
@@ -181,7 +181,7 @@ ul#nav-main {background-color: #262626;
 ul#nav-breadcrumbs {background-color: #262626;
     box-shadow: 0 0 4px #000000;
     padding: 5px;
-	margin-top: -15px;
+	margin-top: -2px;
 	}
 
 ol {
@@ -244,15 +244,12 @@ ol ol ul, ol ul ul, ul ol ul, ul ul ul {
 /* Site description and logo */
 #site-description {
 	display: block;
-    margin: auto;
-    width: 40%;
-	
+	margin: auto;
+	position: relative;
 }
 
 #site-description h1 {
 	margin-right: 0;
-	display: none;
-}
 }
 
 /* Round cornered boxes and backgrounds
@@ -340,7 +337,7 @@ ul.linklist > li.rightside, p.rightside, a.rightside {
 }
 
 ul.navlinks {
-	border-top: 1px solid transparent;
+	border-top: 0px solid transparent;
 }
 
 ul.leftside {
@@ -782,7 +779,7 @@ table.info tbody th {
 }
 
 dl.details {
-	/*font-family: Roboto-Bold, Arial;*/
+	/*font-family: Arial;*/
 	font-size: 1.1em;
 }
 
@@ -1192,7 +1189,7 @@ ul.linklist:after,
 
 .dropdown-extended .header {
 	padding: 0 10px;
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	
@@ -1257,7 +1254,7 @@ ul.linklist:after,
 .notification_list p.notification-time {
 	font-size: 0.9em;
 	margin: 0;
-	text-align: center;
+	text-align: right;
 }
 
 .notification_list div.notifications {
@@ -1270,7 +1267,7 @@ ul.linklist:after,
 }
 
 .notification_list p.notifications_title {
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.2em !important;
 }
 
@@ -1358,6 +1355,17 @@ ul.linklist:after,
 	border-top: none;
 }
 
-p.site-des {
-    display: none;
+.rate-value {
+	line-height: 22px !important;
+}
+.rate-minus:before {
+	margin-top: 10px !important;
+}
+div#back-to-top {
+	background-position: center 98% !important;
+	margin: 0;
+	padding: 15px;
+	background-position: center 15px;
+	height: auto;
+	bottom: 0px;
 }
