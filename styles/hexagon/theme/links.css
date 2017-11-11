@@ -62,7 +62,7 @@ li.breadcrumbs span:first-child > a {
 
 /* Links for forum/topic lists */
 a.forumtitle {
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: none;
@@ -73,7 +73,7 @@ a.forumtitle:hover {
 }
 
 a.topictitle {
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: none;
@@ -86,7 +86,7 @@ a.topictitle:hover {
 a.lastsubject {
 	font-weight: bold;
 	text-decoration: none;
-	font-family: Roboto-Bold, Arial;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
     font-size: 1.2em;
 }
 
@@ -214,7 +214,4 @@ a.feed-icon-forum {
 
 a.anchor {
 	display: block;
-}
-#back-to-top.tower {
-	background-position: center 98% !important;
 }

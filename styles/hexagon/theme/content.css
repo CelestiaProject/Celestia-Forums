@@ -854,9 +854,30 @@ table.fixed-width-table {
 #memberlist tr.inactive, #team tr.inactive {
 	font-style: italic;
 }
+.header_logo_mobile {
+    display: none;
+}
+.headerbar .inner {
+	padding: 0 !important;
+}
 .header_desc {
-	position: absolute;
+    position: absolute;
     top: 35%;
     padding-left: 50px;
 }
-
+.imageset.icon_topic_latest {
+	margin-left: 2px;
+}
+#back-to-top {
+	margin: 50px 15px !important;
+}
+#back-to-top.tower {
+	background-position: center 50px !important;
+	margin: 0 !important;
+}
+li.responsive-search.clone.clone-first {
+	display: none !important;
+}
+table#recaptcha_table, input#recaptcha_response_field {
+    background-color: #fff;
+}

@@ -12,16 +12,12 @@ html {
 	height: auto;
 }
 
-body {
-	padding: 0;
-}
-
 #wrap {
 	border: none;
 	border-radius: 0;
 	margin: 0;
 	min-width: 290px;
-	padding: 0 5px;
+	padding: 0;
 }
 
 /* Common block wrappers
@@ -31,9 +27,6 @@ body {
 	margin-left: -5px;
 	margin-right: -5px;
 }
-.headerbar {
-    margin-bottom: -35px;
-}
 #cp-main .forabg, #cp-main .forumdb, #cp-main .post, #cp-main .panel {
 	border-radius: 0px;
 }
@@ -41,7 +34,7 @@ body {
 /* Logo block
 ----------------------------------------*/
 #site-description {
-	
+	float: none;
 	width: auto;
 	text-align: center;
 }
@@ -62,7 +55,7 @@ body {
 	background-position: center;
 }
 
-#site-description h1, #site-description p {
+#site-description p {
 	text-align: inherit;
 	float: none;
 	margin: 5px;
@@ -71,26 +64,8 @@ body {
 	text-overflow: ellipsis;
 }
 
-.header_desc, .search-header {
+#site-description h1, #site-description p, .search-header {
 	display: none;
-}
-#page-body {
-	padding-top: 10px;
-}
-.headerbar {
-	margin-top: 35px;
-}
-#wrap {
-	padding-top: 0 !important;
-}
-div#top-menu {
-	margin-top: 30px;
-}
-#back-to-top {
-	bottom: 0 !important; 
-}
-h2.topic-title, h2.forum-title {
-	clear: right;
 }
 
 /* Navigation
@@ -619,4 +594,23 @@ fieldset.display-actions {
     margin-top: 5px;
     background-position: center;
 	}
+}
+.header_logo {
+    display: none;
+}
+.header_logo_mobile {
+    display: block;
+}
+#page-body {
+	padding: 0 5px;
+}
+h2.topic-title {
+	clear: right;
+}
+.headerbar {
+	margin-top: 20px;
+}
+.navbar, .headerbar {
+	margin-left: 0;
+	margin-right: 0;
 }
