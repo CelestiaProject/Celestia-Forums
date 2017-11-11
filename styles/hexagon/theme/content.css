@@ -401,7 +401,7 @@ p.author {
 	font-size: 1em;
 	line-height: 1.2em;
 	clear: both;
-	border-bottom: 1px dashed #0082FF;
+	border-bottom: 1px dashed #ccc;
 }
 
 /* Post signature */
@@ -880,4 +880,7 @@ li.responsive-search.clone.clone-first {
 }
 table#recaptcha_table, input#recaptcha_response_field {
     background-color: #fff;
+}
+select#sd, select#sk, select#st {
+	border-color: #ccc;
 }

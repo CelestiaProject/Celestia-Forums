@@ -266,7 +266,7 @@ fieldset.submit-buttons input {
     padding: 5px;
     box-shadow: 0 0 4px #000000;
 	margin-right: -5px;		
-	border: 1px dashed #0082FF
+	border: 1px dashed #ccc;
 }
 
 #smiley-box img {
