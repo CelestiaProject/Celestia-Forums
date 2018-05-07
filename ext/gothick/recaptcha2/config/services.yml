@@ -1,0 +1,16 @@
+services:
+    gothick.recaptcha2.captcha.recaptcha2:
+        class: gothick\recaptcha2\captcha\recaptcha2
+        calls:
+            - [set_name, [gothick.recaptcha2.captcha.recaptcha2]]
+        arguments:
+            - @config
+            - @dbal.conn
+            - @user
+            - @request
+            - @template
+            - @log
+            - %core.root_path%
+            - %core.php_ext%
+        tags:
+            - { name: captcha.plugins }
