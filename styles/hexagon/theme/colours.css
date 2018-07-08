@@ -49,7 +49,7 @@ li#search-box {
 /* Round cornered boxes and backgrounds
 ---------------------------------------- */
 #wrap {
-	background-color: #171717;
+	background-color: #262626;
 	border-color: #0082FF;
 	max-width: 1240px;
     min-width: 625px;
@@ -66,22 +66,22 @@ li#search-box {
 }
 
 .navbar {
-	background-color: #262626;
+	background-color: #353535;
 	box-shadow: 0 0 4px #000000;
 }
 
 .forabg {
-	background-color: #262626;
+	background-color: #353535;
 	box-shadow: 0 0 4px #000000;
 }
 
 .forumbg {
-	background-color: #262626;
+	background-color: #353535;
 	
 }
 
 .panel {
-	background-color: #262626;
+	background-color: #353535;
 	color: #e9ebee;
 	box-shadow: 0 0 4px #000000;
 
@@ -96,17 +96,17 @@ li#search-box {
 }
 
 .bg1 {
-	background-color:  #262626;
+	background-color:  #353535;
 	margin-bottom: 8px !important;
 	box-shadow: 0 0 4px #000000;
 	margin-left: 3px;
 }
 li.row.bg1 {
-    background-color: #171717;
+    background-color: #262626;
 	box-shadow: 0 0 0 #000000 !important;
 }
 li.row.bg2 {
-    background-color: #171717;
+    background-color: #2D2D2D;
 	box-shadow: 0 0 0 #000000 !important;
 }
 
@@ -115,7 +115,7 @@ table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
 }
 
 .bg2 {
-	background-color:  #262626;
+	background-color:  #353535;
 	margin-bottom: 8px !important;
 	box-shadow: 0 0 4px #000000;
 	margin-left: 3px;
@@ -135,16 +135,16 @@ div#file-list-container {
 }
 
 .bg3	{
-	background-color:  #262626;
+	background-color:  #303030;
 	margin-bottom: 8px !important;
 	box-shadow: 0 0 4px #000000;
 }
 tr.bg1 {
-    background-color: #171717;
+    background-color: #282828;
     box-shadow: 0 0 0 #000000 !important;
 }
 tr.bg2 {
-    background-color: #171717;
+    background-color: #303030;
     box-shadow: 0 0 0 #000000 !important;
 }
 .panel.bg1.online {
@@ -162,12 +162,12 @@ tr.bg2 {
 	background-color: #E7E8EA;
 }
 .bg4 {
-	background-color:  #171717;
+	background-color:  #303030;
 	margin-bottom: 8px !important;
 	box-shadow: 0 0 4px #000000;
 }
 .bg5 {
-	background-color:  #171717;
+	background-color:  #282828;
 	margin-bottom: 8px !important;
 	box-shadow: 0 0 4px #000000;
 }
@@ -202,7 +202,7 @@ table.table1 tbody tr {
 }
 
 table.table1 tbody tr:hover, table.table1 tbody tr.hover {
-	background-color: #000000;
+	background-color: #3F3F3F;
 	
 }
 
@@ -296,7 +296,7 @@ li.reported:hover {
 }
 
 div.rules {
-    background-color: #ccc;
+    background-color: #898989;
     color: #171717;
 	box-shadow: 0 0 4px #000000;
 }
@@ -395,7 +395,7 @@ Colours and backgrounds for content.css
 -------------------------------------------------------------- */
 
 ul.forums {
-	background-color: #171717;
+	background-color: #262626;
 	
 }
 
@@ -495,7 +495,7 @@ dl.faq dt {
 ----------------------------------------*/
 /* Quote block */
 blockquote {
-	background-color: #171717;
+	background-color: #2D2D2D;
 	background-image: url("./images/quote.png");
 	border-color:#121212;
 	box-shadow: 0 0 4px #000000;
@@ -512,12 +512,12 @@ blockquote blockquote {
 
 blockquote blockquote blockquote {
 	/* Nested quotes */
-	background-color: #171717;
+	background-color: #262626;
 }
 
 /* Code block */
 .codebox {
-	background-color: #171717;
+	background-color: #262626;
 	border-color: #0082FF;
 	box-shadow: 0 0 4px #000000;
 }
@@ -682,7 +682,7 @@ dd.profile-warnings {
 Colours and backgrounds for buttons.css
 -------------------------------------------------------------- */
 .button {
-	border-color: #121212;
+	border-color: #0082FF;
 	background-color: #262626;
 	color: #e9ebee;
 }
@@ -836,7 +836,7 @@ ul.cplist {
 /* CP tabbed menu
 ----------------------------------------*/
 #tabs .tab > a {
-	background: #262626;
+	background: #353535;
 	color: #e9ebee;
 }
 
@@ -859,7 +859,7 @@ ul.cplist {
 /* Mini tabbed menu used in MCP
 ----------------------------------------*/
 #minitabs .tab > a {
-	background-color: #171717;
+	background-color: #353535;
 }
 
 #minitabs .activetab > a,
@@ -884,7 +884,7 @@ ul.cplist {
 /* Link styles for the sub-section links */
 #navigation a {
 	color: #e9ebee;
-	background: #171717;
+	background: #353535;
 	
 }
 
@@ -923,18 +923,18 @@ ul.cplist {
 }
 
 .panel-container .panel {
-	background-color: #171717;
+	background-color: #262626;
 }
 
 #cp-main .pm {
-	background-color: #171717;
+	background-color: #262626;
 	box-shadow: 0 0 4px #000000;
 	margin-left: 5px;
 }
 
 /* Friends list */
 .cp-mini {
-	background-color: #171717;
+	background-color: #262626;
 	box-shadow: 0 0 4px #000000;
 }
 
@@ -973,7 +973,7 @@ dl.mini dt {
 
 /* Avatar gallery */
 #gallery label {
-    background: #171717;
+    background: #262626;
     border-color: #0082FF;
 }
 
@@ -989,8 +989,8 @@ Colours and backgrounds for forms.css
 /* General form styles
 ----------------------------------------*/
 select {
-	border-color: #121212;
-	background-color: #171717;
+	border-color: #ffffff;
+	background-color: #353535;
 	color: #fff;
 }
 
@@ -1085,7 +1085,7 @@ a.button1, input.button1, input.button3, a.button2, input.button2 {
 }
 
 a.button1, input.button1 {
-	border-color: #121212;
+	border-color: #0082FF;
 }
 
 input.button3 {
@@ -1094,7 +1094,7 @@ input.button3 {
 
 /* Alternative button */
 a.button2, input.button2, input.button3 {
-	border-color: #121212;
+	border-color: #0082FF;
 }
 
 /* <a> button in the style of the form buttons */
