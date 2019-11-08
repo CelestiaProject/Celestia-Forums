@@ -281,7 +281,14 @@ class session
 
 		// Why no forwarded_for et al? Well, too easily spoofed. With the results of my recent requests
 		// it's pretty clear that in the majority of cases you'll at least be left with a proxy/cache ip.
-		$this->ip = htmlspecialchars_decode($request->server('REMOTE_ADDR'));
+		if ($request->server('HTTP_CF_CONNECTING_IP') != '')
+		{
+			$this->ip = htmlspecialchars_decode($request->server('HTTP_CF_CONNECTING_IP'));
+		}
+		else
+		{
+			$this->ip = htmlspecialchars_decode($request->server('REMOTE_ADDR'));
+		}
 		$this->ip = preg_replace('# {2,}#', ' ', str_replace(',', ' ', $this->ip));
 
 		// split the list of IPs
