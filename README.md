@@ -15,7 +15,7 @@
 
 **Copyright (c) 2001-2017, Celestia Development Team**
 
-**Celestia Forums:** http://celestia.space/forum/
+**Celestia Forums:** http://celestiaproject.space/forum/
 
 ### Contributing
 
